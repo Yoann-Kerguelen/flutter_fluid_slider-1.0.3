@@ -92,7 +92,7 @@ class FluidSlider extends StatefulWidget {
 
   ///The styling of the min and max text that gets displayed on the slider
   ///
-  ///If not provided the ancestor [Theme]'s [accentTextTheme] text style will be applied.
+  ///If not provided the ancestor [Theme]'s [textTheme] text style will be applied.
   final TextStyle labelsTextStyle;
 
   ///The styling of the current value text that gets displayed on the slider
@@ -289,11 +289,11 @@ class _FluidSliderState extends State<FluidSlider>
     final TextStyle defaultStyle = widget.showDecimalValue
         ? Theme.of(context)
             .textTheme
-            .subtitle2
+            .titleMedium
             .copyWith(fontWeight: FontWeight.bold)
         : Theme.of(context)
             .textTheme
-            .subtitle1
+            .titleSmall
         .copyWith(fontWeight: FontWeight.bold);
 
     return widget.valueTextStyle ?? defaultStyle;
@@ -479,7 +479,7 @@ class _MinMaxLabels extends StatelessWidget {
         child: child ??
             Text(
               '${value.toInt()}',
-              style: textStyle ?? Theme.of(context).accentTextTheme.subtitle1 ,
+              style: textStyle ?? Theme.of(context).textTheme.titleSmall,
             ),
       ),
     );
